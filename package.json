@@ -1,0 +1,50 @@
+{
+  "name": "cognos-cli",
+  "version": "0.0.1",
+  "description": "command line tools for IBM Cognos Analytics",
+  "main": "index.js",
+  "bin": {
+    "cognos": "./src/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "git add README.md ; node_modules/.bin/lint-staged",
+    "release": "standard-version"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "node_modules/.bin/prettier --write --single-quote",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/CognosExt/cognos-cli.git"
+  },
+  "keywords": [
+    "Cognos"
+  ],
+  "author": "Reinier Battenbegr",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/CognosExt/cognos-cli/issues"
+  },
+  "homepage": "https://github.com/CognosExt/cognos-cli#readme",
+  "dependencies": {
+    "co-prompt": "^1.0.0",
+    "commander": "^2.17.1",
+    "documentation": "^8.1.2",
+    "jcognos": "file:../jcognos"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.3.0",
+    "prettier": "^1.14.3"
+  }
+}
