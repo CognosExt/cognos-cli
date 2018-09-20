@@ -1,6 +1,6 @@
 {
   "name": "cognos-cli",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "command line tools for IBM Cognos Analytics",
   "main": "index.js",
   "bin": {
