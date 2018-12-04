@@ -5,7 +5,7 @@ const mCognosTools = require('../utils/mCognosTools');
 
 function getMCognos(program) {
   program
-    .command('mcognosupdate <file>')
+    .command('mcognosupdate [file]')
     .alias('mcu')
     .description('Update all files with your mCognos configuration')
     .option('-c, --customize', 'Customize mCognos current configuration')
