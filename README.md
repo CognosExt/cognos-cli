@@ -67,6 +67,6 @@ Update all files with your mCognos configuration
 
 #### Options:
 
--c, --customize  Customize mCognos for your own purpose
--s, --silent     Ask no questions
--h, --help       output usage information
+    -c, --customize  Customize mCognos for your own purpose
+    -s, --silent     Ask no questions
+    -h, --help       output usage information
