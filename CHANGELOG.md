@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.3"></a>
+## [1.0.3](https://github.com/CognosExt/cognos-cli/compare/v1.0.2...v1.0.3) (2018-12-04)
+
+
+### Bug Fixes
+
+* Missing file in npm package ([0f23b5c](https://github.com/CognosExt/cognos-cli/commit/0f23b5c))
+
+
+
 <a name="1.0.2"></a>
 ## [1.0.2](https://github.com/CognosExt/cognos-cli/compare/v1.0.1...v1.0.2) (2018-12-04)
 
