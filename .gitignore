@@ -62,3 +62,7 @@ typings/
 
 #cognos-cli specific
 config.json
+config.xml
+CustomSettings.json
+CustomSettingsTemplate.json
+
