@@ -170,14 +170,12 @@ class mCognosTools {
     configFile.setDescription(settings.description);
     configFile.setAuthor(settings.author.name);
     configFile.setAuthorEmail(settings.author.email);
-    fs.writeFileSync('./confignew.xml', configFile.XML(), 'utf8', function(
-      err
-    ) {
+    fs.writeFileSync('./config.xml', configFile.XML(), 'utf8', function(err) {
       if (err) {
         return console.error(chalk.red(err));
       }
     });
-    console.log(chalk.green('confignew.xml was saved'));
+    console.log(chalk.green('config.xml was saved'));
   }
 }
 
