@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/CognosExt/cognos-cli/compare/v1.0.3...v1.1.0) (2019-01-31)
+
+
+### Bug Fixes
+
+* wrong throw of error ([0ee9e87](https://github.com/CognosExt/cognos-cli/commit/0ee9e87))
+
+
+### Features
+
+* Write config.xml not confignew.xml ([41946df](https://github.com/CognosExt/cognos-cli/commit/41946df))
+
+
+
 <a name="1.0.3"></a>
 ## [1.0.3](https://github.com/CognosExt/cognos-cli/compare/v1.0.2...v1.0.3) (2018-12-04)
 
