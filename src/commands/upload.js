@@ -23,7 +23,6 @@ function getUpload(program) {
       'A .json configuration file. Any command-line parameter will override settings in this config file'
     )
     .action(function(action, file) {
-      throw 'kut';
       var file = path.resolve(file);
       if (program.config) {
         var lconfig = path.resolve(program.config);
