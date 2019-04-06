@@ -1,0 +1,7 @@
+{
+  "_comment": "Copy this file to Settings.json and adapt the settings to run tests",
+  "url": "https://localhost/ibmcognos",
+  "user": "testuser",
+  "namespace": "SomeNameSpace",
+  "password": "verySecret"
+}

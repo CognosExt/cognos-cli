@@ -1,64 +1,66 @@
 const path = require('path');
-const jcognos = require('jcognos');
+const getCognos = require('../utils/jCognosWrapper');
+const chalk = require('chalk');
 
 function getUpload(program) {
   program
-    .command('upload <file>')
+    .command('upload [object]')
     .alias('up')
-    .description('upload a cognos extention or theme')
-    .option('-a, --address <address>', 'The address of the cognos instance.')
-    .option('-u, --username <username>', 'The user to authenticate as')
-    .option('-p, --password <password>', "The user's password")
+    .description(
+      'Upload either an extention or theme. eg. upload theme -e MyTheme.zip'
+    )
+    .option('-w --url [url]', 'URL of cognos server')
+    .option('-u --user [user]', 'Cognos Username')
+    .option('-p --password [password]', 'Cognos Password')
     .option(
-      '-n, --namespace <namespace>',
-      'The cognos namespace, if not the default'
+      '-n --namespace [namespace]',
+      'Cognos Namespace, when ommitted the default namespace is used'
     )
     .option(
       '-e, --extname <extname>',
       'The name of the extension or theme. Mandatory.'
     )
-    .option('-p, --debug', 'Produce more output for debugging.')
     .option(
-      '-c, --config <config>',
-      'A .json configuration file. Any command-line parameter will override settings in this config file'
+      '-c, --config [config]',
+      'A .json configuration file. Any command-line parameter will override settings in this config file. The default is Settings.json.'
     )
-    .action(function(action, file) {
-      var file = path.resolve(file);
-      if (program.config) {
-        var lconfig = path.resolve(program.config);
-        var config = require(lconfig);
+    .action(function(object, options) {
+      if (
+        typeof object !== 'string' ||
+        (object !== 'theme' && object !== 'extension')
+      ) {
+        console.error(
+          chalk.red('The object type must be one of "theme" or "extension"')
+        );
+        process.exit(1);
       }
-      program.address = config.address ? config.address : program.address;
-      program.username = config.username ? config.username : program.username;
-      program.password = config.password ? config.password : program.password;
-      program.namespace = config.namespace
-        ? config.namespace
-        : program.namespace;
-      program.extname = config.extname ? config.extname : program.extname;
-      program.debug = config.debug ? config.debug : program.debug;
+      var file = path.resolve(options.extname);
+      var debug = options.debug !== undefined;
 
-      jcognos.getCognos(program.address, program.debug).then(function(lcognos) {
-        lcognos.login(program.username, program.password).then(function() {
-          if (action == 'extension') {
-            lcognos
-              .uploadExtension(file, program.extname)
+      var extname = options.extname !== undefined;
+
+      var prom = getCognos(options, debug)
+        .then(function(mycognos) {
+          if (object == 'extension') {
+            mycognos
+              .uploadExtension(file, extname)
               .then(function() {
                 console.log('Uploaded Extension');
               })
               .catch(function(err) {
                 console.log('Error uploading', err);
               });
-          } else if (action == 'theme') {
-            lcognos
-              .uploadExtension(file, program.extname, 'themes')
+          } else if (object == 'theme') {
+            mycognos
+              .uploadExtension(file, extname, 'themes')
               .then(function() {
                 console.log('Uploaded Theme');
               })
               .catch(function(err) {
                 console.log('Error uploading', err);
               });
-          } else if (action == 'file') {
-            lcognos
+          } else if (object == 'file') {
+            mycognos
               .upLoadDataFile(file)
               .then(function() {
                 console.log('Uploaded Data File');
@@ -66,10 +68,23 @@ function getUpload(program) {
               .catch(function(err) {
                 console.log('Error uploading', err);
               });
+          } else {
+            console.error(chalk.red('Upload object unknown'));
+            process.exit(1);
           }
+
+          Promise.resolve(mycognos).then(function() {
+            console.log('Done uploading');
+            process.exit(0);
+          });
+        })
+        .catch(function(err) {
+          console.log(chalk, red(err));
+          process.exit(1);
         });
-      });
+      return prom;
     });
+
   return program;
 }
 

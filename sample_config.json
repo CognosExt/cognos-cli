@@ -1,7 +1,0 @@
-{
-  "username": "myuser",
-  "password": "secret",
-  "namespace": "SomeNameSpace",
-  "address": "https://www.example.com/ibmcognos",
-  "debug": false
-}
