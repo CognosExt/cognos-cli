@@ -24,27 +24,75 @@ theme: Uploads theme into cognos.
     -h, --help                          output usage information
 
 #### Commands
-    upload|up [options] <file>          upload a cognos extention or theme
-    mcognosinit|mci [options] [file]    Start a new fresh mCognos configuration in this mCognos folder.
-    mcognosupdate|mcu [options] <file>  Update all files with your mCognos configuration
 
+    upload|up [options] [object]         Upload either an extention or theme. eg. upload theme -e MyTheme.zip
+    mcognosinit|mci [options] [file]     Start a new fresh mCognos configuration in this mCognos folder.
+    mcognosupdate|mcu [options] [file]   Update all files with your mCognos configuration
+    export|exp [options]                 Export Palettes
+    import|imp [options] [file]          Import Objects
+    defaultpalettes|dp [options] [file]  Convert public palettes export to default palettes file
+    deletepalette|rmp [options] [id]     Delete Palette(s)
 
-### cognos upload
+### upload
 
-upload a cognos extention or theme
+Usage: upload|up [options][object]
 
-    upload|up [options] <file>
+Upload either an extention or theme. eg. upload theme -e MyTheme.zip
 
 #### Options:
 
-    -a, --address <address>      The address of the cognos instance.
-    -u, --username <username>    The user to authenticate as
-    -p, --password <password>    The user's password
-    -n, --namespace <namespace>  The cognos namespace, if not the default
-    -e, --extname <extname>      The name of the extension or theme. Mandatory.
-    -p, --debug                  Produce more output for debugging.
-    -c, --config <config>        A .json configuration file. Any command-line parameter will override settings in this config file
-    -h, --help                   output usage information
+    -w --url [url] URL of cognos server
+    -u --user [user] Cognos Username
+    -p --password [password] Cognos Password
+    -n --namespace [namespace] Cognos Namespace, when ommitted the default namespace is used
+    -e, --extname <extname> The name of the extension or theme. Mandatory.
+    -c, --config [config] A .json configuration file. Any command-line parameter will override settings in this config file. The default is Settings.json.
+    -h, --help output usage information
+
+### export
+
+Usage: export|exp [options]
+
+Export Palettes
+
+#### Options:
+
+    -w --url [url] URL of cognos server
+    -u --user [user] Cognos Username
+    -p --password [password] Cognos Password
+    -n --namespace [namespace] Cognos Namespace, when ommitted the default namespace is used
+    -c, --config [config] A .json configuration file. Any command-line parameter will override settings in this config file. The default is Settings.json.
+    -h, --help output usage information
+
+### Import
+
+Usage: import|imp [options][file]
+
+Import Objects
+
+#### Options:
+
+    -w --url [url] URL of cognos server
+    -u --user [user] Cognos Username
+    -p --password [password] Cognos Password
+    -n --namespace [namespace] Cognos Namespace, when ommitted the default namespace is used
+    -c, --config [config] A .json configuration file. Any command-line parameter will override settings in this config file. The default is Settings.json.
+    -h, --help output usage information
+
+### delete
+
+Usage: deletepalette|rmp [options][id]
+
+Delete Palette(s)
+
+Options:
+-a, --all Delete all public palettes
+-s, --silent Ask no questions
+-w --url [url] URL of cognos server
+-u --user [user] Cognos Username
+-p --password [password] Cognos Password
+-n --namespace [namespace] Cognos Namespace, when ommitted the default namespace is used
+-c, --config [config] A .json configuration file. Any command-line parameter will override settings in this config file. The default is Settings.json.
 
 ### cognos mcognosinit
 
@@ -54,10 +102,9 @@ Start a new fresh mCognos configuration in this mCognos folder.
 
 #### Options:
 
--c, --customize  Customize mCognos for your own purpose
--s, --silent     Ask no questions
--h, --help       output usage information
-
+    -c, --customize Customize mCognos for your own purpose
+    -s, --silent Ask no questions
+    -h, --help output usage information
 
 ### cognos mcognosinit
 
