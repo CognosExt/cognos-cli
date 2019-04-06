@@ -1,4 +1,4 @@
-Custom*
-sample_*
-config.json
-config.xml
+.gitignore
+.circleci
+test
+Settings.json
