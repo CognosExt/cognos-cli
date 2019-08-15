@@ -43,7 +43,7 @@ function getUpload(program) {
         .then(function(mycognos) {
           if (object == 'extension') {
             mycognos
-              .uploadExtension(file, extname)
+              .uploadExtension(file, extname, 'extentions', { sslcheck: false })
               .then(function() {
                 console.log('Uploaded Extension');
               })
@@ -52,7 +52,7 @@ function getUpload(program) {
               });
           } else if (object == 'theme') {
             mycognos
-              .uploadExtension(file, extname, 'themes')
+              .uploadExtension(file, extname, 'themes', { sslcheck: false })
               .then(function() {
                 console.log('Uploaded Theme');
               })

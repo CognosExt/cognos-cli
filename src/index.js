@@ -8,6 +8,7 @@ const getExport = require('./commands/export');
 const getImport = require('./commands/import');
 const defaultPalettes = require('./commands/defaultpalettes');
 const deletePalette = require('./commands/deletepalette');
+const getConfiguration = require('./commands/configuration');
 
 var program = require('commander');
 
@@ -19,4 +20,5 @@ getExport(program);
 getImport(program);
 defaultPalettes(program);
 deletePalette(program);
+getConfiguration(program);
 program.parse(process.argv);
