@@ -37,7 +37,7 @@ theme: Uploads theme into cognos.
 
 Usage: upload|up [options][object]
 
-Upload either an extention or theme. eg. upload theme -e MyTheme.zip
+Upload either an extention or theme or visualisation. eg. upload theme -e MyTheme.zip
 
 #### Options:
 
@@ -45,7 +45,7 @@ Upload either an extention or theme. eg. upload theme -e MyTheme.zip
     -u --user [user] Cognos Username
     -p --password [password] Cognos Password
     -n --namespace [namespace] Cognos Namespace, when ommitted the default namespace is used
-    -e, --extname <extname> The name of the extension or theme. Mandatory.
+    -e, --extname <extname> The name of the extension or theme file. Mandatory.
     -c, --config [config] A .json configuration file. Any command-line parameter will override settings in this config file. The default is Settings.json.
     -h, --help output usage information
 
