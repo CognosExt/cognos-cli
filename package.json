@@ -28,7 +28,7 @@
   "keywords": [
     "Cognos"
   ],
-  "author": "Reinier Battenbegr",
+  "author": "Reinier Battenberg",
   "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/CognosExt/cognos-cli/issues"
@@ -37,18 +37,18 @@
   "dependencies": {
     "co": "^4.6.0",
     "co-prompt": "^1.0.0",
-    "commander": "^3.0.0",
-    "documentation": "^12.1.1",
-    "download-git-repo": "^2.0.0",
-    "jcognos": "^2.1.0",
-    "xmldom": "^0.1.27"
+    "commander": "^5.1.0",
+    "documentation": "^13.0.0",
+    "download-git-repo": "^3.0.2",
+    "jcognos": "^2.2.0",
+    "xmldom": "^0.3.0"
   },
   "devDependencies": {
-    "cz-conventional-changelog": "^3.0.2",
-    "husky": "^3.0.3",
-    "lint-staged": "^9.2.1",
-    "prettier": "^1.18.2",
-    "standard-version": "^7.0.0"
+    "cz-conventional-changelog": "^3.2.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.6",
+    "prettier": "^2.0.5",
+    "standard-version": "^8.0.0"
   },
   "husky": {
     "hooks": {
