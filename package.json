@@ -1,6 +1,6 @@
 {
   "name": "cognos-cli",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "command line tools for IBM Cognos Analytics",
   "main": "index.js",
   "bin": {
@@ -39,7 +39,7 @@
     "commander": "^5.1.0",
     "documentation": "^13.0.0",
     "download-git-repo": "^3.0.2",
-    "jcognos": "^2.2.0",
+    "jcognos": "^2.2.2",
     "xmldom": "^0.3.0"
   },
   "devDependencies": {
