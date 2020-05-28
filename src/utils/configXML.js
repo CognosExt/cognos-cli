@@ -6,8 +6,10 @@ const filename = 'config.xml';
 class ConfigXML {
   constructor() {
     var me = this;
-    var data = fs.readFileSync(filename, 'utf-8');
-    me.DOM = new DOMParser().parseFromString(data, 'text/xml');
+    try {
+      var data = fs.readFileSync(filename, 'utf-8');
+      me.DOM = new DOMParser().parseFromString(data, 'text/xml');
+    } catch (e) {}
   }
 
   setId(appId) {
