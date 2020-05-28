@@ -17,8 +17,7 @@
   },
   "lint-staged": {
     "*.js": [
-      "node_modules/.bin/prettier --write --single-quote",
-      "git add"
+      "node_modules/.bin/prettier --write --single-quote"
     ]
   },
   "repository": {
@@ -52,7 +51,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "git add README.md ; node_modules/.bin/lint-staged"
+      "pre-commit": "node_modules/.bin/lint-staged"
     }
   }
 }
