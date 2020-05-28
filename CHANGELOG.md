@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/CognosExt/cognos-cli/compare/v1.3.1...v1.4.0) (2020-05-28)
+
+
+### Features
+
+* allow for uploading visualisations ([9fed7c4](https://github.com/CognosExt/cognos-cli/commit/9fed7c4d9c1bf5aa2e1e98dcef182989ad89a3ae))
+
 ### [1.3.1](https://github.com/CognosExt/cognos-cli/compare/v1.3.0...v1.3.1) (2019-08-15)
 
 
