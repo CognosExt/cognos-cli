@@ -40,18 +40,16 @@ function getUpload(program) {
         );
         process.exit(1);
       }
-      console.log(options.extname);
       var file = path.resolve(options.extname);
-      var debug = options.debug !== undefined;
+      var debug = options.parent.debug !== undefined;
 
       var extname = options.extname !== undefined;
-      console.log(file);
 
-      var prom = getCognos(options, true)
+      var prom = getCognos(options, debug)
         .then(function (mycognos) {
           if (object == 'extension') {
             mycognos
-              .uploadExtension(file, extname, 'extentions', { sslcheck: false })
+              .uploadExtension(file, extname, 'extentions')
               .then(function () {
                 console.log('Uploaded Extension');
               })
@@ -60,7 +58,7 @@ function getUpload(program) {
               });
           } else if (object == 'theme') {
             mycognos
-              .uploadExtension(file, extname, 'themes', { sslcheck: false })
+              .uploadExtension(file, extname, 'themes')
               .then(function () {
                 console.log('Uploaded Theme');
               })
@@ -68,13 +66,9 @@ function getUpload(program) {
                 console.log('Error uploading', err);
               });
           } else if (object == 'visualisation') {
-            console.log(options.extname);
             extname = options.extname.slice(0, -4);
-            console.log(extname);
             mycognos
-              .uploadExtension(file, extname, 'visualisation', {
-                sslcheck: false,
-              })
+              .uploadExtension(file, extname, 'visualisation')
               .then(function () {
                 console.log('Uploaded Visualisation');
               })
@@ -94,11 +88,7 @@ function getUpload(program) {
             console.error(chalk.red('Upload object unknown'));
             process.exit(1);
           }
-
-          Promise.resolve(mycognos).then(function () {
-            console.log('Done uploading');
-            process.exit(0);
-          });
+          return mycognos;
         })
         .catch(function (err) {
           console.log(chalk.red(err));
