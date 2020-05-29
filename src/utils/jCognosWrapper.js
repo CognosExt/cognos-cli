@@ -16,7 +16,7 @@ function getCognos(options, debug = false) {
     url: '',
     user: '',
     namespace: '',
-    password: ''
+    password: '',
   };
   try {
     settings = require(settingsjson);
@@ -52,20 +52,18 @@ function getCognos(options, debug = false) {
     process.exit(1);
   }
 
-  var result = jcognos
-    .getCognos(url, debug)
-    .then(function(lcognos) {
-      cognos = lcognos;
-      if (!cognos.loggedin) {
+  return jcognos
+    .getCognos(url, debug, 60000, true)
+    .then(function (lcognos) {
+      if (!lcognos.loggedin) {
         return lcognos.login(user, password, namespace);
       }
-      return Promise.resolve(cognos);
+      return Promise.resolve(lcognos);
     })
-    .catch(function(err) {
+    .catch(function (err) {
       console.log(chalk.red(err));
       process.exit(1);
     });
-  return result;
 }
 
 module.exports = getCognos;
