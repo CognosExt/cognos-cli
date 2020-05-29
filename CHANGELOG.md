@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.2](https://github.com/CognosExt/cognos-cli/compare/v1.4.1...v1.4.2) (2020-05-29)
+
+
+### Bug Fixes
+
+* fix throwing error when there is no config.xml present ([29bbcfe](https://github.com/CognosExt/cognos-cli/commit/29bbcfe6f5f50746faf66c33c67ebe22988fafa3))
+* fix uploading files ([0563283](https://github.com/CognosExt/cognos-cli/commit/0563283b03378a9b645da168c1d9b6318185dfdf))
+
 ### [1.4.1](https://github.com/CognosExt/cognos-cli/compare/v1.4.0...v1.4.1) (2020-05-28)
 
 ## [1.4.0](https://github.com/CognosExt/cognos-cli/compare/v1.3.1...v1.4.0) (2020-05-28)
