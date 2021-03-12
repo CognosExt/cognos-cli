@@ -40,7 +40,7 @@
     "documentation": "^13.0.0",
     "download-git-repo": "^3.0.2",
     "jcognos": "^2.2.2",
-    "xmldom": "^0.3.0"
+    "xmldom": "^0.5.0"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^3.2.0",
