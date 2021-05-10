@@ -44,8 +44,8 @@ function getUpload(program) {
         );
         process.exit(1);
       }
-      var file = '/' + path.resolve(options.extname + '.zip');
-      var debug = options.parent.debug !== undefined;
+      var file = path.resolve(options.extname + '.zip');
+      var debug = options.debug !== undefined;
 
       var extname = options.extname;
 

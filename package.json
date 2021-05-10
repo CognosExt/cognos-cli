@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "standard-version"
+    "release": "standard-version",
+    "prepare": "husky install"
   },
   "config": {
     "commitizen": {
@@ -36,22 +37,17 @@
   "dependencies": {
     "co": "^4.6.0",
     "co-prompt": "^1.0.0",
-    "commander": "^5.1.0",
-    "documentation": "^13.0.0",
+    "commander": "^7.2.0",
+    "documentation": "^13.2.5",
     "download-git-repo": "^3.0.2",
     "jcognos": "^2.2.2",
     "xmldom": "^0.6.0"
   },
   "devDependencies": {
-    "cz-conventional-changelog": "^3.2.0",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.6",
-    "prettier": "^2.0.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0",
     "standard-version": "^9.3.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "node_modules/.bin/lint-staged"
-    }
   }
 }
