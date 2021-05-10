@@ -10,6 +10,10 @@ function getUpload(program) {
       'Upload either an extention or theme. eg. upload theme -e MyTheme.zip'
     )
     .option('-w --url [url]', 'URL of cognos server')
+    .option(
+      '-s --server [server]',
+      'servername. Url defaults to https://servername/ibmcognos/'
+    )
     .option('-u --user [user]', 'Cognos Username')
     .option('-p --password [password]', 'Cognos Password')
     .option(
@@ -40,16 +44,16 @@ function getUpload(program) {
         );
         process.exit(1);
       }
-      var file = path.resolve(options.extname);
+      var file = '/' + path.resolve(options.extname + '.zip');
       var debug = options.parent.debug !== undefined;
 
-      var extname = options.extname !== undefined;
+      var extname = options.extname;
 
       var prom = getCognos(options, debug)
         .then(function (mycognos) {
           if (object == 'extension') {
             mycognos
-              .uploadExtension(file, extname, 'extentions')
+              .uploadExtension(file, extname, 'extensions')
               .then(function () {
                 console.log('Uploaded Extension');
               })
@@ -94,6 +98,7 @@ function getUpload(program) {
           console.log(chalk.red(err));
           process.exit(1);
         });
+
       return prom;
     });
 
